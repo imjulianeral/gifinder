@@ -1,3 +1,7 @@
+@import 'mixinst';
+
+$color-primary: blueviolet;
+
 .container {
   min-height: 100vh;
   padding: 0 0.5rem;
@@ -24,17 +28,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
 }
 
 .title a {
-  color: #0070f3;
+  color: $color-primary;
   text-decoration: none;
 }
 
@@ -76,6 +80,11 @@
   flex-wrap: wrap;
   max-width: 800px;
   margin-top: 3rem;
+
+  @include desktop() {
+    width: 100%;
+    flex-direction: column;
+  }
 }
 
 .card {
@@ -93,8 +102,8 @@
 .card:hover,
 .card:focus,
 .card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+  color: $color-primary;
+  border-color: $color-primary;
 }
 
 .card h2 {
@@ -111,11 +120,4 @@
 .logo {
   height: 1em;
   margin-left: 0.5rem;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
 }
