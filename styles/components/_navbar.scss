@@ -1,0 +1,51 @@
+@use '../globals';
+
+.nav {
+  @include globals.flex(space-between, center);
+  @include globals.blur();
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  margin-bottom: 1rem;
+}
+
+@include globals.desktop() {
+  .nav {
+    position: fixed;
+    top: 0;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    margin-top: 1rem;
+  }
+}
+
+.nav__logo {
+  display: none;
+}
+
+@include globals.desktop() {
+  .nav__logo {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-left: 5rem;
+  }
+}
+
+.nav__menu {
+  @include globals.flex(space-between, center, 5rem);
+
+  list-style: none;
+  margin: 1rem auto;
+}
+
+@include globals.desktop() {
+  .nav__menu {
+    margin-right: 5rem;
+  }
+}
