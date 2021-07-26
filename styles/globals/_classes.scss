@@ -1,4 +1,15 @@
+@use './mixins';
+
 .container {
   width: min(90%, 120rem);
   margin: 0 auto;
+}
+
+.page-margin {
+  margin-top: 0rem;
+}
+@include mixins.desktop() {
+  .page-margin {
+    margin-top: 10rem;
+  }
 }
