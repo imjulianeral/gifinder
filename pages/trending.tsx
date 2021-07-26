@@ -4,6 +4,7 @@ import Image from 'next/image'
 
 import { Layout } from '@components/ui'
 import { TrendingResponse } from '@typeDefs/Giphy'
+import { useCallback } from 'react'
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const uri = `https://api.giphy.com/v1/gifs/trending?api_key=${process.env.GIPHY_KEY}`
@@ -18,6 +19,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 }
 
 export default function Trending({ data }: TrendingResponse) {
+  const loadGif = useCallback((url: string) => url, [])
   console.log(data)
 
   return (
@@ -27,7 +29,7 @@ export default function Trending({ data }: TrendingResponse) {
       {data.map(gif => (
         <Image
           key={gif.id}
-          loader={() => gif.images.fixed_width_small.url}
+          loader={() => loadGif(gif.images.fixed_width_small.url)}
           src={gif.images.fixed_width_small.url}
           alt={gif.title}
           width={gif.images.fixed_width_small.width}
