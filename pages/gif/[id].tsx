@@ -7,8 +7,9 @@ import toast from 'react-hot-toast'
 
 import { Layout } from '@components/ui'
 import { SingleGifResponse } from '@typeDefs/Giphy'
+import { useLoader } from '@hooks'
 
-export const getServerSideProps: GetServerSideProps = async ({
+export const getServerSideProps: GetServerSideProps<SingleGifResponse> = async ({
   query,
 }: GetServerSidePropsContext) => {
   const uri = `https://api.giphy.com/v1/gifs/${query.id}?api_key=${process.env.GIPHY_KEY}`
@@ -23,7 +24,7 @@ export const getServerSideProps: GetServerSideProps = async ({
 }
 
 export default function Details({ data }: SingleGifResponse) {
-  const loadGif = useCallback((url: string) => url, [])
+  const { loadGif } = useLoader()
   const avatarFallback = 'https://media.giphy.com/media/j6aoUHK5YiJEc/giphy.gif'
 
   const copyToClipboard = useCallback(async () => {

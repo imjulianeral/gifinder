@@ -13,7 +13,7 @@ export type SingleGifResponse = {
   data: Gif
 }
 
-interface Gif {
+export interface Gif {
   type: Type
   id: string
   url: string

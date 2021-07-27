@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import { useCallback } from 'react'
 import { Search } from 'react-feather'
 
-import { Layout } from '@components/ui'
+import { GifList, Layout } from '@components/ui'
 import { GifListResponse } from '@typeDefs/Giphy'
 
 export const getServerSideProps: GetServerSideProps<GifListResponse> = async ({
@@ -65,21 +65,7 @@ export default function Home({ data }: GifListResponse) {
 
       {router.query.search && <h1>{router.query.search}</h1>}
       {data.map(gif => (
-        <Link key={gif.id} href={`/gif/${gif.id}`}>
-          <a>
-            <Image
-              loader={() =>
-                loadGif(gif.images.fixed_width_small.url ?? gif.images.fixed_width.url)
-              }
-              src={gif.images.fixed_width_small.url ?? gif.images.fixed_width.url}
-              alt={gif.title}
-              width={gif.images.fixed_width_small.width ?? gif.images.fixed_width.width}
-              height={
-                gif.images.fixed_width_small.height ?? gif.images.fixed_width.height
-              }
-            />
-          </a>
-        </Link>
+        <GifList key={gif.id} gif={gif} />
       ))}
     </Layout>
   )
