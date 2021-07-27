@@ -7,6 +7,7 @@
       "@typeDefs/*": ["types/*"],
       "@hooks": ["hooks/index.ts"]
     },
+    "types": ["cypress"],
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,

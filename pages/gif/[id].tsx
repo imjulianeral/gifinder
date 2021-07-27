@@ -56,10 +56,12 @@ export default function Details({ data }: SingleGifResponse) {
       <div className="grid">
         <article className="article">
           <h1>{data.title}</h1>
-          <p className="mb-1">
+          <p className="mb-1" data-cy="dimensions">
             Dimensions: {data.images.original.width}x{data.images.original.height}
           </p>
-          <p className="mb-1">Frames: {data.images.original.frames}</p>
+          <p className="mb-1" data-cy="frames">
+            Frames: {data.images.original.frames}
+          </p>
           <a
             href={data.url}
             target="_blank"
@@ -69,6 +71,7 @@ export default function Details({ data }: SingleGifResponse) {
             <video muted autoPlay loop src={data.images.original_mp4.mp4} />
           </a>
           <button
+            data-cy="share-btn"
             aria-label="share button"
             className="btn btn-black w-50 m-auto mt-2"
             onClick={copyToClipboard}
