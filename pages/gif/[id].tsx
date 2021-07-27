@@ -23,6 +23,11 @@ export const getServerSideProps: GetServerSideProps<SingleGifResponse> = async (
   }
 }
 
+/**
+ * The Detailed View page
+ * @param SingleGifResponse The response with all the gif images {@link SingleGifResponse}
+ * @returns A page with all the gif' metadata and the use who published it
+ */
 export default function Details({ data }: SingleGifResponse) {
   const { loadGif } = useLoader()
   const avatarFallback = 'https://media.giphy.com/media/j6aoUHK5YiJEc/giphy.gif'

@@ -15,6 +15,12 @@ export const getServerSideProps: GetServerSideProps<GifListResponse> = async () 
   }
 }
 
+/**
+ * The Trending page
+ * @param GifListResponse The response with all the gif images {@link GifListResponse}
+ * @returns A page which shows the list of the most popular gif images at the moment
+ */
+
 export default function Trending({ data }: GifListResponse) {
   return (
     <Layout pageName="Trending" description="Most searched gifs">
