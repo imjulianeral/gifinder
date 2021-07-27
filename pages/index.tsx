@@ -41,6 +41,12 @@ export const getServerSideProps: GetServerSideProps<GifListResponse> = async ({
   }
 }
 
+/**
+ * The Home page
+ * @param GifListResponse The response with all the gif images {@link GifListResponse}
+ * @returns A page with the possibility of searching gif images & display them
+ */
+
 export default function Home({ data }: GifListResponse) {
   const [search, setSearch] = useState('')
   const router = useRouter()

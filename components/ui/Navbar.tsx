@@ -2,6 +2,10 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Home, TrendingUp } from 'react-feather'
 
+/**
+ * Navbar Component
+ * @returns A component to navigate through the entire website
+ */
 export function Navbar() {
   const router = useRouter()
 

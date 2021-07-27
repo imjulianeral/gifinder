@@ -4,9 +4,15 @@ import Link from 'next/link'
 import { Gif } from '@typeDefs/Giphy'
 import { useLoader } from '@hooks'
 
-type GifListProps = {
+export type GifListProps = {
   gif: Gif
 }
+
+/**
+ * Component which renders the grid containing all the gif images
+ * @param GifListProps The Gif image properties {@link GifListProps}
+ * @returns A list of gif images
+ */
 
 export function GifList({ gif }: GifListProps) {
   const { loadGif } = useLoader()

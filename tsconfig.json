@@ -22,6 +22,17 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
+  "typedocOptions": {
+    "entryPoints": [
+      "./components/ui/index.ts",
+      "./types/*",
+      "./hooks/useLoader.ts",
+      "./pages/index.tsx",
+      "./pages/trending.tsx",
+      "./pages/gif/[id].tsx"
+    ],
+    "out": "docs"
+  },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
