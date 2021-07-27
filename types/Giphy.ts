@@ -1,4 +1,4 @@
-export type TrendingResponse = {
+export type GifListResponse = {
   pagination: {
     total_count: number
     count: number
@@ -8,7 +8,7 @@ export type TrendingResponse = {
   data: Gif[]
 }
 
-export type DetailsResponse = {
+export type SingleGifResponse = {
   meta: Metadata
   data: Gif
 }
