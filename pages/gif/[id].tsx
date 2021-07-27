@@ -84,7 +84,6 @@ export default function Details({ data }: SingleGifResponse) {
               alt="user profile image"
               width="100%"
               height="100%"
-              objectFit="contain"
             />
             <h2>{data.user?.display_name ?? 'Anonymous'}</h2>
           </a>
