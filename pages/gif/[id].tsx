@@ -2,6 +2,7 @@ import type { GetServerSideProps, GetServerSidePropsContext } from 'next'
 
 import Image from 'next/image'
 import { useCallback } from 'react'
+import { Share2 } from 'react-feather'
 
 import { Layout } from '@components/ui'
 import { DetailsResponse } from '@typeDefs/Giphy'
@@ -29,7 +30,11 @@ export default function Details({ data }: DetailsResponse) {
       <div className="grid">
         <article className="article">
           <h1>{data.title}</h1>
+          <p className="mb-1">Frames: {data.images.original.frames}</p>
           <video muted autoPlay loop src={data.images.original_mp4.mp4} />
+          <button className="btn btn-black">
+            <Share2 />
+          </button>
         </article>
         <aside className="sidebar">
           <a
