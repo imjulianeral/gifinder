@@ -5,19 +5,21 @@ export function Navbar() {
   return (
     <nav className="nav container">
       <Link href="/">
-        <a className="nav__logo">GiFinder</a>
+        <a className="nav__logo" aria-label="GiFinder">
+          GiFinder
+        </a>
       </Link>
       <ul className="nav__menu">
         <li className="nav__link">
           <Link href="/">
-            <a>
+            <a aria-label="home link">
               <Home />
             </a>
           </Link>
         </li>
         <li className="nav__link">
           <Link href="/trending">
-            <a>
+            <a aria-label="trending link">
               <TrendingUp />
             </a>
           </Link>

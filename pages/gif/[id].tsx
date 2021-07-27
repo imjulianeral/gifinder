@@ -80,7 +80,7 @@ export default function Details({ data }: SingleGifResponse) {
               width="100%"
               height="100%"
             />
-            <h3>{data.user?.display_name ?? 'Anonymous'}</h3>
+            <h2>{data.user?.display_name ?? 'Anonymous'}</h2>
           </a>
         </aside>
       </div>
