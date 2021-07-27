@@ -43,10 +43,10 @@ export default function Details({ data }: SingleGifResponse) {
           backdropFilter: 'blur(15px) saturate(180%)',
           backgroundColor: 'rgba(0, 0, 0, 0.5)',
         },
-        // iconTheme: {
-        //   primary: 'rgba(0, 238, 255, 0.75)',
-        //   secondary: '#fff',
-        // },
+        iconTheme: {
+          primary: '#00c5d3',
+          secondary: '#fff',
+        },
       }
     )
   }, [])
@@ -60,7 +60,12 @@ export default function Details({ data }: SingleGifResponse) {
             Dimensions: {data.images.original.width}x{data.images.original.height}
           </p>
           <p className="mb-1">Frames: {data.images.original.frames}</p>
-          <a href={data.url} target="_blank" rel="noopener noreferrer">
+          <a
+            href={data.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={data.title}
+          >
             <video muted autoPlay loop src={data.images.original_mp4.mp4} />
           </a>
           <button

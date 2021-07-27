@@ -16,11 +16,8 @@
   width: 90%;
   padding-left: 1.5rem;
   background-color: rgba(255, 255, 255, 0);
-  font-size: 4rem;
+  font-size: 2rem;
 }
-// .search-bar__input::placeholder {
-//   padding-left: 1.5rem;
-// }
 .search-bar__btn {
   margin-right: 1.5rem;
 }
@@ -30,6 +27,7 @@
   .search-bar__input:focus,
   .search-bar__input:active {
     padding-left: 0;
+    font-size: 4rem;
   }
   .search-bar__btn {
     margin-right: 0;

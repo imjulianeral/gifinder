@@ -66,10 +66,6 @@ export default function Home({ data }: GifListResponse) {
             backdropFilter: 'blur(15px) saturate(180%)',
             backgroundColor: 'rgba(0, 0, 0, 0.5)',
           },
-          // iconTheme: {
-          //   primary: 'rgba(0, 238, 255, 0.75)',
-          //   secondary: '#fff',
-          // },
         })
       }
     },
@@ -83,7 +79,7 @@ export default function Home({ data }: GifListResponse) {
           type="text"
           name="search"
           id="search"
-          placeholder="Search..."
+          placeholder="Search the gif you love 💙"
           autoComplete="off"
           className="search-bar__input"
           onChange={handleChange}
