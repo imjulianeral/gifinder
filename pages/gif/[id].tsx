@@ -57,7 +57,11 @@ export default function Details({ data }: SingleGifResponse) {
   }, [])
 
   return (
-    <Layout pageName={data.slug} description={`${data.slug}' Detail Page`}>
+    <Layout
+      pageName={data.slug}
+      description={`${data.slug}' Detail Page`}
+      cover={data.images.original.webp}
+    >
       <div className="grid">
         <article className="article">
           <h1>{data.title}</h1>
