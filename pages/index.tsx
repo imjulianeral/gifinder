@@ -1,9 +1,6 @@
 import type { GetServerSideProps, GetServerSidePropsContext } from 'next'
 
-import Image from 'next/image'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useCallback } from 'react'
 import { Search } from 'react-feather'
 
 import { GifList, Layout } from '@components/ui'
@@ -43,9 +40,6 @@ export const getServerSideProps: GetServerSideProps<GifListResponse> = async ({
 
 export default function Home({ data }: GifListResponse) {
   const router = useRouter()
-  const loadGif = useCallback((url: string) => url, [])
-
-  console.log(router.query)
 
   return (
     <Layout pageName="Home" description="A search engine to find gif images">
@@ -58,7 +52,11 @@ export default function Home({ data }: GifListResponse) {
           autoComplete="off"
           className="search-bar__input"
         />
-        <button type="submit" className="search-bar__btn btn btn-black">
+        <button
+          type="submit"
+          aria-label="search button"
+          className="search-bar__btn btn btn-black"
+        >
           <Search />
         </button>
       </form>
