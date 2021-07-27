@@ -13,3 +13,13 @@
     margin-top: 10rem;
   }
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  column-gap: 4rem;
+  grid-auto-flow: column;
+}
+.sidebar {
+  grid-column: 1 / 2;
+}
