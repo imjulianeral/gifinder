@@ -1,0 +1,37 @@
+@use '../globals';
+
+.search-bar {
+  @include globals.blur();
+  @include globals.flex(center, center, 0);
+
+  height: 7rem;
+  margin: 3rem 0;
+}
+.search-bar__input,
+.search-bar__input:focus,
+.search-bar__input:active {
+  border: none;
+  outline: none;
+  height: 100%;
+  width: 90%;
+  padding-left: 1.5rem;
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 4rem;
+}
+// .search-bar__input::placeholder {
+//   padding-left: 1.5rem;
+// }
+.search-bar__btn {
+  margin-right: 1.5rem;
+}
+
+@include globals.desktop() {
+  .search-bar__input,
+  .search-bar__input:focus,
+  .search-bar__input:active {
+    padding-left: 0;
+  }
+  .search-bar__btn {
+    margin-right: 0;
+  }
+}

@@ -4,13 +4,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { Layout } from '@components/ui'
-import { TrendingResponse } from '@typeDefs/Giphy'
+import { GifListResponse } from '@typeDefs/Giphy'
 import { useCallback } from 'react'
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const uri = `https://api.giphy.com/v1/gifs/trending?api_key=${process.env.GIPHY_KEY}`
   const req = await fetch(uri)
-  const res: TrendingResponse = await req.json()
+  const res: GifListResponse = await req.json()
 
   return {
     props: {
@@ -19,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   }
 }
 
-export default function Trending({ data }: TrendingResponse) {
+export default function Trending({ data }: GifListResponse) {
   const loadGif = useCallback((url: string) => url, [])
 
   return (

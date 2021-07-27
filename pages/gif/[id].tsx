@@ -6,14 +6,14 @@ import { Share2 } from 'react-feather'
 import toast from 'react-hot-toast'
 
 import { Layout } from '@components/ui'
-import { DetailsResponse } from '@typeDefs/Giphy'
+import { SingleGifResponse } from '@typeDefs/Giphy'
 
 export const getServerSideProps: GetServerSideProps = async ({
   query,
 }: GetServerSidePropsContext) => {
   const uri = `https://api.giphy.com/v1/gifs/${query.id}?api_key=${process.env.GIPHY_KEY}`
   const req = await fetch(uri)
-  const res: DetailsResponse = await req.json()
+  const res: SingleGifResponse = await req.json()
 
   return {
     props: {
@@ -22,7 +22,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   }
 }
 
-export default function Details({ data }: DetailsResponse) {
+export default function Details({ data }: SingleGifResponse) {
   const loadGif = useCallback((url: string) => url, [])
   const avatarFallback = 'https://media.giphy.com/media/j6aoUHK5YiJEc/giphy.gif'
 
@@ -62,7 +62,7 @@ export default function Details({ data }: DetailsResponse) {
           <a href={data.url} target="_blank" rel="noopener noreferrer">
             <video muted autoPlay loop src={data.images.original_mp4.mp4} />
           </a>
-          <button className="btn btn-black" onClick={copyToClipboard}>
+          <button className="btn btn-black w-50 m-auto mt-2" onClick={copyToClipboard}>
             <Share2 />
           </button>
         </article>
