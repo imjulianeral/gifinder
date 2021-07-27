@@ -1,7 +1,7 @@
 import type { GetServerSideProps, GetServerSidePropsContext } from 'next'
 
 import { useRouter } from 'next/router'
-import { ChangeEvent, FormEvent, useCallback, useState } from 'react'
+import { ChangeEvent, FormEvent, useCallback, useEffect, useState } from 'react'
 import { Search } from 'react-feather'
 import { z } from 'zod'
 
@@ -30,7 +30,7 @@ export const getServerSideProps: GetServerSideProps<GifListResponse> = async ({
       meta: {
         msg: 'No search term provided',
         status: 406,
-        response_id: 'qwerty',
+        response_id: 'YfUPXugqvtdGi5',
       },
       pagination: {
         count: 0,
@@ -47,7 +47,7 @@ export const getServerSideProps: GetServerSideProps<GifListResponse> = async ({
  * @returns A page with the possibility of searching gif images & display them
  */
 
-export default function Home({ data }: GifListResponse) {
+export default function Home({ data, meta }: GifListResponse) {
   const [search, setSearch] = useState('')
   const router = useRouter()
   const formSchema = z.string()
@@ -61,9 +61,12 @@ export default function Home({ data }: GifListResponse) {
       e.preventDefault()
 
       try {
+        // validates if the user input is an string
         formSchema.parse(search)
+        // if it's a string then adds a search parameter to perform the query in getServerSideProps
         router.push(`/?search=${search}`)
       } catch (error) {
+        // if the validation fails, then show a toast
         toast.error('Please write a valid text', {
           style: {
             fontSize: '1.6rem',
@@ -77,6 +80,20 @@ export default function Home({ data }: GifListResponse) {
     },
     [formSchema, search, router]
   )
+
+  useEffect(() => {
+    if (router.query.search && meta.status !== 200) {
+      toast.error(meta.msg, {
+        style: {
+          fontSize: '1.6rem',
+          borderRadius: '3rem',
+          color: '#fff',
+          backdropFilter: 'blur(15px) saturate(180%)',
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        },
+      })
+    }
+  }, [router.query.search, meta])
 
   return (
     <Layout pageName="Home" description="A search engine to find gif images">
