@@ -63,7 +63,11 @@ export default function Details({ data }: SingleGifResponse) {
           <a href={data.url} target="_blank" rel="noopener noreferrer">
             <video muted autoPlay loop src={data.images.original_mp4.mp4} />
           </a>
-          <button className="btn btn-black w-50 m-auto mt-2" onClick={copyToClipboard}>
+          <button
+            aria-label="share button"
+            className="btn btn-black w-50 m-auto mt-2"
+            onClick={copyToClipboard}
+          >
             <Share2 />
           </button>
         </article>
@@ -72,6 +76,7 @@ export default function Details({ data }: SingleGifResponse) {
             href={data.user?.profile_url ?? '#'}
             target={data.user && '_blank'}
             rel={data.user && 'noopener noreferrer'}
+            aria-label={data.title}
           >
             <Image
               loader={() => loadGif(data.user?.avatar_url ?? avatarFallback)}
@@ -79,6 +84,7 @@ export default function Details({ data }: SingleGifResponse) {
               alt="user profile image"
               width="100%"
               height="100%"
+              objectFit="contain"
             />
             <h2>{data.user?.display_name ?? 'Anonymous'}</h2>
           </a>

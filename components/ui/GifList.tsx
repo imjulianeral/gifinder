@@ -13,7 +13,7 @@ export function GifList({ gif }: GifListProps) {
 
   return (
     <Link key={gif.id} href={`/gif/${gif.id}`}>
-      <a>
+      <a aria-label={gif.title}>
         <Image
           loader={() =>
             loadGif(gif.images.fixed_width_small.url ?? gif.images.fixed_width.url)
