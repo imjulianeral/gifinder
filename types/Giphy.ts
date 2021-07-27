@@ -1,15 +1,16 @@
 export type TrendingResponse = {
-  meta: {
-    status: number
-    msg: string
-    response_id: string
-  }
   pagination: {
     total_count: number
     count: number
     offset: number
   }
+  meta: Metadata
   data: Gif[]
+}
+
+export type DetailsResponse = {
+  meta: Metadata
+  data: Gif
 }
 
 interface Gif {
@@ -36,17 +37,23 @@ interface Gif {
   analytics: Analytics
 }
 
-export interface Analytics {
-  onload: Onclick
-  onclick: Onclick
-  onsent: Onclick
+interface Metadata {
+  status: number
+  msg: string
+  response_id: string
 }
 
-export interface Onclick {
+interface Analytics {
+  onload: OnClick
+  onclick: OnClick
+  onsent: OnClick
+}
+
+interface OnClick {
   url: string
 }
 
-export interface Images {
+interface Images {
   original: FixedHeight
   downsized: The480_WStill
   downsized_large: The480_WStill
@@ -74,21 +81,21 @@ export interface Images {
   '4k'?: The4_K
 }
 
-export interface The480_WStill {
+interface The480_WStill {
   height: string
   width: string
   size: string
   url: string
 }
 
-export interface The4_K {
+interface The4_K {
   height: string
   width: string
   mp4_size: string
   mp4: string
 }
 
-export interface FixedHeight {
+interface FixedHeight {
   height: string
   width: string
   size: string
@@ -101,25 +108,25 @@ export interface FixedHeight {
   hash?: string
 }
 
-export interface Looping {
+interface Looping {
   mp4_size: string
   mp4: string
 }
 
-export enum Rating {
+enum Rating {
   G = 'g',
   PG = 'pg',
 }
 
-export enum TrendingDatetimeEnum {
+enum TrendingDatetimeEnum {
   The00000000000000 = '0000-00-00 00:00:00',
 }
 
-export enum Type {
+enum Type {
   GIF = 'gif',
 }
 
-export interface User {
+interface User {
   avatar_url: string
   banner_image: string
   banner_url: string
