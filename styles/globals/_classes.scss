@@ -21,5 +21,16 @@
   grid-auto-flow: column;
 }
 .sidebar {
+  @include mixins.blur();
+  @include mixins.flex(center, center);
+
   grid-column: 1 / 2;
+  max-height: 20rem;
+  text-align: center;
+}
+.article {
+  @include mixins.blur();
+
+  text-align: center;
+  padding: 2rem;
 }

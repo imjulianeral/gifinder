@@ -13,8 +13,6 @@ export const getServerSideProps: GetServerSideProps = async ({
   const req = await fetch(uri)
   const res: DetailsResponse = await req.json()
 
-  console.log(res)
-
   return {
     props: {
       ...res,
@@ -23,15 +21,31 @@ export const getServerSideProps: GetServerSideProps = async ({
 }
 
 export default function Details({ data }: DetailsResponse) {
+  const loadGif = useCallback((url: string) => url, [])
+  const avatarFallback = 'https://media.giphy.com/media/j6aoUHK5YiJEc/giphy.gif'
+
   return (
     <Layout pageName={data.slug} description={`${data.slug}' Detail Page`}>
       <div className="grid">
-        <article>
+        <article className="article">
           <h1>{data.title}</h1>
           <video muted autoPlay loop src={data.images.original_mp4.mp4} />
         </article>
         <aside className="sidebar">
-          <h3>{data.username}</h3>
+          <a
+            href={data.user?.profile_url ?? '#'}
+            target={data.user && '_blank'}
+            rel={data.user && 'noopener noreferrer'}
+          >
+            <Image
+              loader={() => loadGif(data.user?.avatar_url ?? avatarFallback)}
+              src={data.user?.avatar_url ?? avatarFallback}
+              alt="user profile image"
+              width="100"
+              height="100"
+            />
+            <h3>{data.user?.display_name ?? 'Anonymous'}</h3>
+          </a>
         </aside>
       </div>
     </Layout>
