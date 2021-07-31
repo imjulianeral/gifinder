@@ -5,6 +5,10 @@
   margin: 0 auto;
 }
 
+.content {
+  min-height: calc(100vh - 17rem);
+}
+
 .page-margin {
   margin-top: 0rem;
 }

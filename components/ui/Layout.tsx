@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 
 import Head from 'next/head'
 import { Navbar } from './Navbar'
+import { Footer } from './Footer'
 
 export type LayoutProps = {
   pageName: string
@@ -41,7 +42,8 @@ export function Layout({ pageName, description, cover, children }: LayoutProps) 
         <meta name="twitter:image" content={cover} />
       </Head>
       <Navbar />
-      <main className="container page-margin">{children}</main>
+      <main className="container content page-margin">{children}</main>
+      <Footer />
     </>
   )
 }
