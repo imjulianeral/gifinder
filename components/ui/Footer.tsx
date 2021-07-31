@@ -9,7 +9,7 @@ export function Footer() {
           <strong>@imjulianeral</strong>
         </a>
       </p>
-      <Image src="/giphy.png" alt="giphy logo" width="101" height="36" />
+      <Image src="/giphy.png" alt="giphy logo" width="200" height="22" />
     </footer>
   )
 }
