@@ -19,15 +19,13 @@ export function GifList({ gif }: GifListProps) {
 
   return (
     <Link key={gif.id} href={`/gif/${gif.id}`}>
-      <a aria-label={gif.title}>
+      <a aria-label={gif.title} className="gallery__img">
         <Image
-          loader={() =>
-            loadGif(gif.images.fixed_width_small.url ?? gif.images.fixed_width.url)
-          }
-          src={gif.images.fixed_width_small.url ?? gif.images.fixed_width.url}
+          loader={() => loadGif(gif.images.fixed_width.url)}
+          src={gif.images.fixed_width.url}
           alt={gif.title}
-          width={gif.images.fixed_width_small.width ?? gif.images.fixed_width.width}
-          height={gif.images.fixed_width_small.height ?? gif.images.fixed_width.height}
+          width={gif.images.fixed_width.width}
+          height={gif.images.fixed_width.height}
         />
       </a>
     </Link>

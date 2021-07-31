@@ -118,9 +118,12 @@ export default function Home({ data, meta }: GifListResponse) {
       </form>
 
       {router.query.search && <h1>{router.query.search}</h1>}
-      {data.map(gif => (
-        <GifList key={gif.id} gif={gif} />
-      ))}
+
+      <section className="gallery">
+        {data.map(gif => (
+          <GifList key={gif.id} gif={gif} />
+        ))}
+      </section>
     </Layout>
   )
 }
