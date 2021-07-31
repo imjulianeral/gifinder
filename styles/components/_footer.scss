@@ -1,0 +1,17 @@
+@use '../globals';
+
+.footer {
+  @include globals.flex(center, center);
+  @include globals.blur();
+
+  height: 5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 7rem;
+}
+
+@include globals.desktop() {
+  .footer {
+    margin-bottom: 1rem;
+  }
+}
