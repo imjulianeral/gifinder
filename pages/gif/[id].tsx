@@ -60,7 +60,7 @@ export default function Details({ data }: SingleGifResponse) {
     <Layout
       pageName={data.slug}
       description={`${data.slug}' Detail Page`}
-      cover={data.images.original.url}
+      cover={data.images.downsized.url}
     >
       <div className="grid">
         <article className="article">
