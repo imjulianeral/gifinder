@@ -26,9 +26,7 @@ export default function Trending({ data }: GifListResponse) {
     <Layout pageName="Trending" description="Most searched gifs">
       <h1>Trending</h1>
 
-      {data.map(gif => (
-        <GifList key={gif.id} gif={gif} />
-      ))}
+      <GifList data={data} />
     </Layout>
   )
 }
